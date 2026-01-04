@@ -36,6 +36,23 @@ paginate: true
 - What makes code hard to reason about?
 - Have you used map/filter/reduce?
 
+<!--
+Wenn Zustand überall mutiert wird und man nicht mehr weiss, wer etwas wann verändert hat
+Wenn Funktionen versteckte Seiteneffekte haben (DB-Writes, HTTP-Calls, globale Variablen)
+Wenn Debugging nur noch mit Breakpoints und Logs möglich ist, statt durch Lesen des Codes
+Wenn Fehler zeitlich oder kontextabhängig sind („tritt nur in Prod auf“)
+
+Implizite Abhängigkeiten (z.B. globale Konfiguration, Singletons)
+Funktionen, die mehr als eine Sache tun
+Mutation von Datenstrukturen, die an mehreren Orten verwendet werden
+Unklare Datenflüsse („woher kommt dieser Wert eigentlich?“)
+Unterschiedliches Verhalten je nach Ausführungsreihenfolge
+
+keine Mutation
+Fokus auf was passiert, nicht wie
+Funktionen als zentrale Bausteine
+-->
+
 ---
 
 - side effects
@@ -73,6 +90,11 @@ Is this a function in the mathematical sense?
 
 Discuss determinism + domain problems (Option, Maybe, ...).
 
+<!--
+Das verletzt Determinismus (gleicher input immer gleiches output)
+für x = 0 nicht definiert
+-->
+
 ---
 
 ## 2.2 Composition
@@ -98,6 +120,8 @@ f(x) = x + 1
 Given
 `a(x)=x−3` and `b(x)=x²`
 What is `(a ∘ b)(4)`?
+
+<!-- 13 -->
 
 ---
 
@@ -133,6 +157,8 @@ const inc = (x: number) => x + 1;
 - testable
 - composable
 - no hidden surprises
+
+<!-- type input output magic -->
 
 ---
 
@@ -176,13 +202,13 @@ const result = apply(double)(5); // 10
 
 # 3. Haskell as a Model of Pure FP
 
-Explain why Haskell is useful:
+Why Haskell is useful:
 
 - everything is pure
 - types guide reasoning
 - mathematical feel
 
-No need to know syntax; show how FP looks _clean_
+No need to know syntax; We check how FP looks _clean_
 
 ---
 
@@ -257,11 +283,7 @@ square x = ?
 
 ---
 
----
-
-# **4. Going from Haskell to TypeScript (30 min)**
-
-Show how the same ideas exist in TS, even if the language is not pure.
+# 4. Going from Haskell to TypeScript
 
 ---
 
@@ -381,16 +403,3 @@ const compose =
 3. Look up: What is a functor?
 
 ---
-
-# If you want, I can also create
-
-- **a slide deck outline**,
-- **full speaker notes**,
-- **live-coding demos**,
-- **interactive exercises**,
-- **a PDF handout**,
-- **follow-up session: 2 – Type Systems in FP**,
-- **follow-up session: 3 – Monads without pain**,
-- **follow-up session: 4 – Practical FP design in TypeScript**.
-
-Just tell me what you need next.
