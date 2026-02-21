@@ -9,6 +9,7 @@
   },
   "author": "",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "@babel/core": "^7.28.5",
     "@babel/node": "^7.28.0",

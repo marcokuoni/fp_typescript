@@ -8,8 +8,18 @@ export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
     plugins: { js, functional },
-    extends: ["js/recommended"],
-    languageOptions: { globals: { ...globals.browser, ...globals.node } },
+    extends: [
+      "js/recommended",
+      functional.configs.externalTypeScriptRecommended,
+      functional.configs.recommended,
+      functional.configs.stylistic,
+    ],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        projectService: true,
+      },
+    },
     rules: {
       "functional/no-this-expressions": "error",
     },

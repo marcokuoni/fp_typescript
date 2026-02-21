@@ -9,6 +9,8 @@ paginate: true
 - Over Haskell
 - To TypeScript
 
+-> Pls Download: <https://github.com/marcokuoni/fp_typescript>
+
 ---
 
 # Agenda
@@ -93,6 +95,7 @@ Discuss determinism + domain problems (Option, Maybe, ...).
 <!--
 Das verletzt Determinismus (gleicher input immer gleiches output)
 für x = 0 nicht definiert
+f: R \ {0} -> R
 -->
 
 ---
@@ -183,7 +186,8 @@ A function that takes functions as arguments or returns functions.
 **Example:**
 
 ```js
-const apply = (f) => (x) => f(x);
+const apply = (f, x) => f(x);
+const apply = (f) => (x) => f(x); //currified
 ```
 
 ```ts
@@ -400,6 +404,6 @@ const compose =
     f(g(a));
 ```
 
-3. Look up: What is a functor?
+1. Look up: What is a functor?
 
 ---
