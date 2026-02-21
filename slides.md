@@ -439,5 +439,3 @@ const compose =
 ```
 
 1. Look up: What is a functor?
-
----
