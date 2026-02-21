@@ -291,7 +291,7 @@ square x = ?
 
 ---
 
-## **4.1 Pure functions in TS (5 min)**
+## 4.1 Pure functions in TS
 
 ```ts
 const add1 = (x: number): number => x + 1;
@@ -301,7 +301,7 @@ const f = (x: number) => add1(double(x));
 
 ---
 
-## **4.2 Higher-order functions in TS (10 min)**
+## 4.2 Higher-order functions in TS
 
 ### Example: function factory
 
@@ -311,6 +311,8 @@ const add5 = makeAdder(5);
 add5(3); // 8
 ```
 
+Can we make this generic?
+
 👥 **Exercise 5:**
 Write a HOF:
 
@@ -318,9 +320,16 @@ Write a HOF:
 const applyTwice = ???;
 ```
 
+<!-- ``` -->
+<!-- const applyTwice = -->
+<!--   <T>(f: (x: T) => T) => -->
+<!--   (x: T): T => -->
+<!--     f(f(x)); -->
+<!-- ``` -->
+
 ---
 
-## **4.3 map/filter/reduce as composition (10 min)**
+## 4.3 map/filter/reduce as composition
 
 Tie it back to mathematics:
 
@@ -338,17 +347,17 @@ Because each step is _pure_ and _composable_.
 
 ---
 
-## **4.4 Immutability in JS/TS (5 min)**
+## 4.4 Immutability in JS/TS
 
 ```
 const arr2 = [...arr1, 4];
 ```
 
-Show how to avoid mutation traps.
+How to avoid mutation traps.
 
 ---
 
-# **5. Mini-Workshop: Build a Pure Pipeline (20 min)**
+# 5. Mini-Workshop: Build a Pure Pipeline
 
 ### 🛠️ Task
 
@@ -359,40 +368,65 @@ Given a list of numbers:
 3. Sum them
 4. Keep everything pure
 
-### Haskell version (show)
+### Haskell version
 
 ```haskell
 pipeline xs = sum (map (^2) (filter even xs))
 ```
 
-### TypeScript version (let the audience build it)
+<!-- ### TypeScript version -->
+<!---->
+<!-- ```ts -->
+<!-- const pipeline = (xs: number[]) => -->
+<!--   xs -->
+<!--     .filter((x) => x % 2 === 0) -->
+<!--     .map((x) => x * x) -->
+<!--     .reduce((a, b) => a + b, 0); -->
+<!---->
+<!-- const pipeline = -->
+<!--   <T, U, R>( -->
+<!--     predicate: (x: T) => boolean, -->
+<!--     transform: (x: T) => U, -->
+<!--     reducer: (acc: R, value: U) => R, -->
+<!--     initial: R -->
+<!--   ) => -->
+<!--   (xs: T[]): R => -->
+<!--     xs -->
+<!--       .filter(predicate) -->
+<!--       .map(transform) -->
+<!--       .reduce(reducer, initial); -->
+<!---->
+<!-- const processNumbers = pipeline( -->
+<!--   (x: number) => x % 2 === 0, -->
+<!--   (x: number) => x * x, -->
+<!--   (acc: number, x: number) => acc + x, -->
+<!--   0 -->
+<!-- ); -->
+<!---->
+<!-- processNumbers([1, 2, 3, 4]); // 20 -->
+<!-- ``` -->
 
-```ts
-const pipeline = (xs: number[]) =>
-  xs
-    .filter((x) => x % 2 === 0)
-    .map((x) => x * x)
-    .reduce((a, b) => a + b, 0);
-```
+---
 
 👥 **Exercise 6:** Participants adapt it to:
 
-- cube instead of square
+- cube (^3) instead of square (^2)
 - drop numbers < 10
 
 ---
 
-# **6. Summary & Q&A (5 min)**
+# 6. Summary & Q&A
 
 ### 🎯 Key takeaways
 
 - FP is just doing programming like math: pure, predictable, composable.
 - Haskell gives us the purest view of FP.
 - TypeScript lets us apply FP principles in real-world apps.
+- TypeScript typing is a trade-off: too little loses safety, too much hurts readability — see `option.ts`
 
 ---
 
-# **7. Optional Homework**
+# 7. Optional Homework
 
 1. Rewrite 5 small functions in TS to be pure.
 2. Implement your own `compose` function:

@@ -3,7 +3,8 @@ import { describe, it, expect } from "vitest";
 import {
   add,
   double,
-  f
+  f,
+  add5
 } from "./example";
 
 describe("pure function", () => {
@@ -17,5 +18,9 @@ describe("pure function", () => {
 
   it("composition", () => {
     expect(f(5)).toEqual(11);
+  });
+
+  it("add5", () => {
+    expect(add5(3)).toEqual(8);
   });
 });
