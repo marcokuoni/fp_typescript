@@ -276,17 +276,6 @@ How to do a pure loop?
 
 ---
 
-Because recursion is just mathematical induction.
-
-👥 **Exercise 4:**
-Write a pure function of your own in Haskell syntax:
-
-```
-square x = ?
-```
-
----
-
 # 4. Going from Haskell to TypeScript
 
 ---
