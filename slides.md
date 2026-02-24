@@ -88,7 +88,7 @@ A function is:
 Is this a function in the mathematical sense?
 
 - `g(x) = random number`
-- `h(x) = 1 / x`
+- `h(x) = 1 / x` - this is deterministic
 
 Discuss determinism + domain problems (Option, Maybe, ...).
 
@@ -247,7 +247,7 @@ x = 3
 y = x + 1
 ```
 
-Variables cannot be reassigned.
+Variables cannot be redefined.
 
 - reasoning becomes algebraic.
 

@@ -1,12 +1,13 @@
-export type Option<A> = { _tag: "Some"; value: A } | { _tag: "None" };
+export type Option<A> = { value: A } | {};
 
-export const some = <A>(value: A): Option<A> => ({ _tag: "Some", value });
-export const none = <A = never>(): Option<A> => ({ _tag: "None" });
+export const some = <A>(value: A): Option<A> => ({ value });
+export const none = <A = never>(): Option<A> => ({ });
 
 export const map =
   <A, B>(f: (a: A) => B) =>
-  (oa: Option<A>): Option<B> =>
-    oa._tag === "Some" ? some(f(oa.value)) : none();
+  (oa: Option<A>): Option<B> => {
+    return oa.avb;
+  }
 
 export const flatMap =
   <A, B>(f: (a: A) => Option<B>) =>
