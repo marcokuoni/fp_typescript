@@ -88,7 +88,6 @@ A function is:
 Is this a function in the mathematical sense?
 
 - `g(x) = random number`
-- `h(x) = 1 / x` - this is deterministic
 
 Discuss determinism + domain problems (Option, Maybe, ...).
 
